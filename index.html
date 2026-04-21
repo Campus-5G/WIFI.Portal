@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect | Secure Gateway</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { background-color: #000; color: #ff0000; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        
+        #terminal { width: 100%; max-width: 500px; background: rgba(15, 0, 0, 0.98); border: 2px solid #ff0000; border-radius: 5px; padding: 20px; box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); }
+        
+        .header { border-bottom: 1px solid #ff0000; margin-bottom: 15px; padding-bottom: 8px; font-weight: bold; font-size: 11px; color: #ff5555; letter-spacing: 2px; text-align: center;}
+        
+        .line { margin: 8px 0; font-size: 14px; line-height: 1.4; color: #ff3333; }
+        
+        .progress-bar { width: 100%; height: 12px; border: 1px solid #ff0000; margin: 20px 0; background: #200; }
+        #progress-fill { width: 0%; height: 100%; background: #ff0000; box-shadow: 0 0 10px #ff0000; transition: width 0.2s; }
+        
+        #prank-card { display: none; text-align: center; }
+        .fail-title { color: #ff0000; font-size: 24px; font-weight: bold; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 15px; text-shadow: 0 0 15px #ff0000; }
+        
+        #joke-container { text-align: left; background: #1a0000; border: 1px solid #440000; padding: 15px; border-radius: 4px; max-height: 250px; overflow-y: auto; margin-bottom: 20px; }
+        .joke-entry { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #300; font-size: 14px; color: #fff; }
+        .joke-tag { color: #ff0000; font-weight: bold; font-size: 10px; text-transform: uppercase; margin-right: 5px; }
+
+        .btn { width: 100%; background: transparent; border: 1px solid #ff0000; padding: 15px; color: #ff0000; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s; }
+        .btn:hover { background: #ff0000; color: #000; box-shadow: 0 0 20px #ff0000; }
+        
+        .safety-note { font-size: 10px; color: #666; margin-top: 15px; line-height: 1.4; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<div id="terminal">
+    <div class="header">AI_CORE_SYSTEM_ACCESS // V6.0</div>
+    
+    <div id="boot-sequence">
+        <div id="lines">
+            <div class="line">> Initializing AI-Neural Handshake...</div>
+            <div class="line">> Analyzing User Data Integrity...</div>
+        </div>
+        <div class="progress-bar"><div id="progress-fill"></div></div>
+    </div>
+
+    <div id="prank-card">
+        <div class="fail-title">🤡 MISSION FAILED 🤡</div>
+        
+        <div id="joke-container">
+            </div>
+        
+        <button class="btn" id="retryBtn" onclick="handleRetry()">RETRY (FOR "BETTER" SPEED)</button>
+        
+        <div class="safety-note">
+            Simulation Complete. No actual data was accessed. <br>
+            Project by BSCS PRANK SQUAD.
+        </div>
+    </div>
+</div>
+
+<script>
+    const bootLines = [
+        "Syncing with Campus-5G AI... [OK]",
+        "Checking Firewall Vulnerabilities... [VULNERABLE]",
+        "Downloading User Photos... [45%]",
+        "Accessing Contact List... [SUCCESS]",
+        "Rerouting Traffic through Faisalabad-Hub...",
+        "Finalizing System Overrun... [DONE]"
+    ];
+
+    const jokes = [
+        {tag: "ERROR", text: "Free Wi-Fi not found. Please use your brain instead!"},
+        {tag: "GPA_INFO", text: "Your GPA was too high. Connection throttled to save the server."},
+        {tag: "ADVICE", text: "Scanning random QR codes in uni? You're brave. Or just desperate for data."},
+        {tag: "STATUS", text: "This Wi-Fi is powered by pure imagination. Current Speed: 0kbps."},
+        {tag: "SECURITY", text: "Hacking in progress... Just kidding, I'm just a website. Chill."},
+        {tag: "ALERT", text: "Go back to the library. The books don't need a password."}
+    ];
+
+    const retryReplies = [
+        "Still clicking? Trust issues confirmed.",
+        "Error: Optimism level too high for this network.",
+        "Retry #3: Faisalabad-Hub says 'No.'",
+        "Connection status: Looking for your dignity...",
+        "Okay, now you're just clicking for fun.",
+        "Give up, dost. Go buy a data package."
+    ];
+
+    let lineIdx = 0;
+    let prog = 0;
+    let retryCount = 0;
+
+    function runBoot() {
+        if (lineIdx < bootLines.length) {
+            const div = document.createElement('div');
+            div.className = 'line';
+            div.innerHTML = "> " + bootLines[lineIdx];
+            document.getElementById('lines').appendChild(div);
+            lineIdx++;
+            prog += 16.6;
+            document.getElementById('progress-fill').style.width = prog + "%";
+            setTimeout(runBoot, 800);
+        } else {
+            setTimeout(showPrank, 1000);
+        }
+    }
+
+    function showPrank() {
+        document.getElementById('boot-sequence').style.display = 'none';
+        document.getElementById('prank-card').style.display = 'block';
+        
+        const container = document.getElementById('joke-container');
+        jokes.forEach(j => {
+            const div = document.createElement('div');
+            div.className = 'joke-entry';
+            div.innerHTML = `<span class="joke-tag">[${j.tag}]</span> ${j.text}`;
+            container.appendChild(div);
+        });
+    }
+
+    function handleRetry() {
+        const btn = document.getElementById('retryBtn');
+        btn.innerText = retryReplies[retryCount % retryReplies.length];
+        retryCount++;
+    }
+
+    setTimeout(runBoot, 500);
+</script>
+
+</body>
+</html>
