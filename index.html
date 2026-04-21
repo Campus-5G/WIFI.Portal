@@ -8,82 +8,79 @@
         * { box-sizing: border-box; }
         body { background-color: #000; color: #ff0000; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
         
-        #terminal { width: 100%; max-width: 500px; background: rgba(15, 0, 0, 0.98); border: 2px solid #ff0000; border-radius: 5px; padding: 20px; box-shadow: 0 0 30px rgba(255, 0, 0, 0.6); }
+        #terminal { width: 100%; max-width: 500px; background: rgba(15, 0, 0, 0.98); border: 2px solid #ff0000; border-radius: 5px; padding: 20px; box-shadow: 0 0 40px rgba(255, 0, 0, 0.8); }
         
-        .header { border-bottom: 1px solid #ff0000; margin-bottom: 15px; padding-bottom: 8px; font-weight: bold; font-size: 11px; color: #ff5555; letter-spacing: 2px; text-align: center;}
+        .header { border-bottom: 1px solid #ff0000; margin-bottom: 15px; padding-bottom: 8px; font-weight: bold; font-size: 11px; color: #ff5555; letter-spacing: 2px; text-align: center; overflow: hidden; white-space: nowrap;}
         
-        .line { margin: 8px 0; font-size: 14px; line-height: 1.4; color: #ff3333; }
+        .line { margin: 8px 0; font-size: 13px; line-height: 1.4; color: #ff3333; }
         
-        .progress-bar { width: 100%; height: 12px; border: 1px solid #ff0000; margin: 20px 0; background: #200; }
-        #progress-fill { width: 0%; height: 100%; background: #ff0000; box-shadow: 0 0 10px #ff0000; transition: width 0.2s; }
+        .progress-bar { width: 100%; height: 12px; border: 1px solid #ff0000; margin: 20px 0; background: #200; position: relative; }
+        #progress-fill { width: 0%; height: 100%; background: #ff0000; box-shadow: 0 0 15px #ff0000; transition: width 0.4s ease-in-out; }
         
         #prank-card { display: none; text-align: center; }
-        .fail-title { color: #ff0000; font-size: 24px; font-weight: bold; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 15px; text-shadow: 0 0 15px #ff0000; }
+        .fail-title { color: #ff0000; font-size: 22px; font-weight: bold; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 15px; text-shadow: 0 0 15px #ff0000; }
         
-        #joke-container { text-align: left; background: #1a0000; border: 1px solid #440000; padding: 15px; border-radius: 4px; max-height: 250px; overflow-y: auto; margin-bottom: 20px; }
-        .joke-entry { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #300; font-size: 14px; color: #fff; }
+        #joke-container { text-align: left; background: #1a0000; border: 1px solid #440000; padding: 15px; border-radius: 4px; max-height: 280px; overflow-y: auto; margin-bottom: 20px; border-left: 3px solid #ff0000; }
+        .joke-entry { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #300; font-size: 13px; color: #fff; }
         .joke-tag { color: #ff0000; font-weight: bold; font-size: 10px; text-transform: uppercase; margin-right: 5px; }
 
-        .btn { width: 100%; background: transparent; border: 1px solid #ff0000; padding: 15px; color: #ff0000; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s; }
+        .btn { width: 100%; background: transparent; border: 1px solid #ff0000; padding: 15px; color: #ff0000; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s; text-transform: uppercase; }
         .btn:hover { background: #ff0000; color: #000; box-shadow: 0 0 20px #ff0000; }
         
-        .safety-note { font-size: 10px; color: #666; margin-top: 15px; line-height: 1.4; text-transform: uppercase; }
+        .safety-note { font-size: 10px; color: #666; margin-top: 15px; line-height: 1.4; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
 <div id="terminal">
-    <div class="header">AI_CORE_SYSTEM_ACCESS // V6.0</div>
+    <div class="header">SYSTEM_INTERNAL_KERNEL_BREACH // ERROR_0x404</div>
     
     <div id="boot-sequence">
         <div id="lines">
-            <div class="line">> Initializing AI-Neural Handshake...</div>
-            <div class="line">> Analyzing User Data Integrity...</div>
+            <div class="line">> Executing Bypass.exe...</div>
         </div>
         <div class="progress-bar"><div id="progress-fill"></div></div>
     </div>
 
     <div id="prank-card">
-        <div class="fail-title">🤡 MISSION FAILED 🤡</div>
+        <div class="fail-title">💥 SYSTEM CRASH 💥</div>
         
-        <div id="joke-container">
-            </div>
+        <div id="joke-container"></div>
         
-        <button class="btn" id="retryBtn" onclick="handleRetry()">RETRY (FOR "BETTER" SPEED)</button>
+        <button class="btn" id="retryBtn" onclick="handleRetry()">RE-INITIALIZE QUANTUM LINK</button>
         
         <div class="safety-note">
-            Simulation Complete. No actual data was accessed. <br>
-            Project by BSCS PRANK SQUAD.
+            NON-HOSTILE SIMULATION COMPLETE. <br>
+            PRANK // NO DATA CAPTURED.
         </div>
     </div>
 </div>
 
 <script>
     const bootLines = [
-        "Syncing with Campus-5G AI... [OK]",
-        "Checking Firewall Vulnerabilities... [VULNERABLE]",
-        "Downloading User Photos... [45%]",
-        "Accessing Contact List... [SUCCESS]",
-        "Rerouting Traffic through Faisalabad-Hub...",
-        "Finalizing System Overrun... [DONE]"
+        "Infiltrating Mainframe... [SUCCESS]",
+        "Bypassing Admin Encryption... [99%]",
+        "Extracting Browser History... [WAIT]",
+        "Deleting Semester Results... [FAILED]",
+        "Uploading Malware to Student Portal... [OK]",
+        "Dumping Database to Cloud... [DONE]",
+        "Covering Tracks... [COMPLETE]"
     ];
 
     const jokes = [
-        {tag: "ERROR", text: "Free Wi-Fi not found. Please use your brain instead!"},
-        {tag: "GPA_INFO", text: "Your GPA was too high. Connection throttled to save the server."},
-        {tag: "ADVICE", text: "Scanning random QR codes in uni? You're brave. Or just desperate for data."},
-        {tag: "STATUS", text: "This Wi-Fi is powered by pure imagination. Current Speed: 0kbps."},
-        {tag: "SECURITY", text: "Hacking in progress... Just kidding, I'm just a website. Chill."},
-        {tag: "ALERT", text: "Go back to the library. The books don't need a password."}
+        {tag: "WIFI_ERROR", text: "Free Wi-Fi? In this economy? You have a better chance of finding a unicorn."},
+        {tag: "SYS_INFO", text: "Connection failed: Your device is too slow for it."},
+        {tag: "STATUS", text: "This network is powered by prayers. Current Speed: -5 Mbps."},
+        {tag: "ADVICE", text: "Scanning random QR codes in uni? Must be desperate for data!"},
+        {tag: "SECURITY", text: "Hacking your gallery... Wow, that's a lot of memes. We're leaving out of boredom."},
+        {tag: "LOG", text: "Go back to the library. The books don't need a password."}
     ];
 
     const retryReplies = [
-        "Still clicking? Trust issues confirmed.",
-        "Error: Optimism level too high for this network.",
-        "Retry #3: Faisalabad-Hub says 'No.'",
-        "Connection status: Looking for your dignity...",
-        "Okay, now you're just clicking for fun.",
-        "Give up, dost. Go buy a data package."
+        "Clicking again won't make your CGPA go up.",
+        "Error: Server is currently laughing at your persistence.",
+        "Give up, dost. Go buy a data package.",
+        "Still clicking? Trust issues confirmed."
     ];
 
     let lineIdx = 0;
@@ -97,11 +94,11 @@
             div.innerHTML = "> " + bootLines[lineIdx];
             document.getElementById('lines').appendChild(div);
             lineIdx++;
-            prog += 16.6;
+            prog += (100 / bootLines.length);
             document.getElementById('progress-fill').style.width = prog + "%";
-            setTimeout(runBoot, 800);
+            setTimeout(runBoot, 1200); 
         } else {
-            setTimeout(showPrank, 1000);
+            setTimeout(showPrank, 1500);
         }
     }
 
@@ -124,7 +121,7 @@
         retryCount++;
     }
 
-    setTimeout(runBoot, 500);
+    setTimeout(runBoot, 800);
 </script>
 
 </body>
